@@ -55,3 +55,104 @@ erase();
   //////////////////////////////////
 
 } // END MAIN
+
+
+
+
+Day 2
+
+
+
+Exercise 1
+
+
+var initial_state = [ 'b', 'b', 'b', 'b', 'b' ];
+
+function main(n) {
+
+  //////////////////////////////////
+  ////                          ////
+  //// v YOUR CODE BELOW HERE v ////
+  ////                          ////
+  //////////////////////////////////
+
+moveRight();
+erase();
+moveRight();
+moveRight();
+erase();
+moveRight();
+
+
+  //////////////////////////////////
+  ////                          ////
+  //// ^ YOUR CODE ABOVE HERE ^ ////
+  ////                          ////
+  //////////////////////////////////
+
+} // END MAIN
+
+
+Exercise 2
+
+
+var initial_state = [ 'g', 'g', 'g', '.', '.' ];
+
+function main(n) {
+
+  //////////////////////////////////
+  ////                          ////
+  //// v YOUR CODE BELOW HERE v ////
+  ////                          ////
+  //////////////////////////////////
+
+useBlue();
+moveRight();
+draw();
+moveRight();
+moveRight();
+draw();
+moveRight();
+
+  //////////////////////////////////
+  ////                          ////
+  //// ^ YOUR CODE ABOVE HERE ^ ////
+  ////                          ////
+  //////////////////////////////////
+
+} // END MAIN
+
+
+Exercise 3
+
+
+var initial_state = [ '.', '.', '.', '.', '.' ];
+
+function main(n) {
+
+  //////////////////////////////////
+  ////                          ////
+  //// v YOUR CODE BELOW HERE v ////
+  ////                          ////
+  //////////////////////////////////
+
+
+  if (onGreen()){
+    useGreen();
+  }
+  if(onBlue()){
+    useBlue();
+  }
+  erase();
+  for (var i=1; i<=4; i++){
+    moveRight();
+  }
+  draw();
+
+    //////////////////////////////////
+    ////                          ////
+    //// ^ YOUR CODE ABOVE HERE ^ ////
+    ////                          ////
+    //////////////////////////////////
+
+} // END MAIN
