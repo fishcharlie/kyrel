@@ -348,3 +348,152 @@ function main(n) {
   //////////////////////////////////
 
 } // END MAIN
+
+
+
+
+Day 4
+
+
+
+Exercise 1
+
+
+var initial_state = [ '.', '.', 'b', '.', '.' ];
+
+function main(n) {
+
+  //////////////////////////////////
+  ////                          ////
+  //// v YOUR CODE BELOW HERE v ////
+  ////                          ////
+  //////////////////////////////////
+
+  var active = false;
+  var color = '';
+
+  for(var i=0; i<5; i++) {
+      if (onGreen() && color === '') {
+        active = true;
+        color = 'green';
+      }
+      else if (onBlue() && color === '') {
+        active = true;
+        color = 'blue';
+      }
+      else if (active && color == 'blue') {
+        useBlue();
+        draw();
+      }
+      else if (active && color == 'green') {
+        useGreen();
+        draw();
+      }
+      moveRight();
+  }
+
+
+  //////////////////////////////////
+  ////                          ////
+  //// ^ YOUR CODE ABOVE HERE ^ ////
+  ////                          ////
+  //////////////////////////////////
+
+} // END MAIN
+
+
+Exercise 2
+
+
+var initial_state = ['b', '.', 'g', '.', 'b'];
+
+function main(n) {
+
+  //////////////////////////////////
+  ////                          ////
+  //// v YOUR CODE BELOW HERE v ////
+  ////                          ////
+  //////////////////////////////////
+
+
+
+  for(var i=0; i<5; i++) {
+      if (onGreen()) {
+        useBlue();
+        draw();
+      }
+      else if (onBlue()) {
+        useGreen();
+        draw();
+      }
+      moveRight();
+  }
+
+
+  //////////////////////////////////
+  ////                          ////
+  //// ^ YOUR CODE ABOVE HERE ^ ////
+  ////                          ////
+  //////////////////////////////////
+
+} // END MAIN
+
+
+Exercise 3
+
+
+var initial_state = ['b', 'g', 'g', '.', 'g'];
+
+function main(n) {
+
+  //////////////////////////////////
+  ////                          ////
+  //// v YOUR CODE BELOW HERE v ////
+  ////                          ////
+  //////////////////////////////////
+
+  var newArray = [];
+
+  for(var i=0; i<5; i++) {
+      var newNum = 4-i;
+
+      if (onGreen()) {
+        newArray[newNum] = 'g';
+      }
+      else if (onBlue()) {
+        newArray[newNum] = 'b';
+      }
+      else {
+        newArray[newNum] = '.';
+      }
+      moveRight();
+  }
+
+  for(var i=0; i<5; i++) {
+    moveLeft();
+  }
+
+  for(var i=0; i<5; i++) {
+      if (newArray[i] == 'g') {
+        useGreen();
+        draw();
+      }
+      else if (newArray[i] == 'b') {
+        useBlue();
+        draw();
+      }
+      else {
+        erase();
+      }
+      moveRight();
+  }
+
+
+
+  //////////////////////////////////
+  ////                          ////
+  //// ^ YOUR CODE ABOVE HERE ^ ////
+  ////                          ////
+  //////////////////////////////////
+
+} // END MAIN
