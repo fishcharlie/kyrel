@@ -20,7 +20,7 @@ var row, colors, kyrel, return_value, rando;
 */
 
 // var initial_state = [ '.', '.', 'b', '.', '.' ];
-var initial_state = ['b', 'g', 'g', '.', 'g'];
+var initial_state = [ '.', 'b', 'b', '.', 'b' ];
 
 function main(n) {
 
@@ -30,19 +30,12 @@ function main(n) {
   ////                          ////
   //////////////////////////////////
 
-  var newArray = [];
+  var numBlues = 0;
+  var numBluesDrawn = 0;
 
   for(var i=0; i<5; i++) {
-      var newNum = 4-i;
-
-      if (onGreen()) {
-        newArray[newNum] = 'g';
-      }
-      else if (onBlue()) {
-        newArray[newNum] = 'b';
-      }
-      else {
-        newArray[newNum] = '.';
+      if (onBlue()) {
+        numBlues++;
       }
       moveRight();
   }
@@ -52,13 +45,10 @@ function main(n) {
   }
 
   for(var i=0; i<5; i++) {
-      if (newArray[i] == 'g') {
-        useGreen();
-        draw();
-      }
-      else if (newArray[i] == 'b') {
+      if (numBluesDrawn<numBlues) {
         useBlue();
         draw();
+        numBluesDrawn++;
       }
       else {
         erase();

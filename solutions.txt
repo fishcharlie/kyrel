@@ -497,3 +497,194 @@ function main(n) {
   //////////////////////////////////
 
 } // END MAIN
+
+
+
+
+Day 5
+
+
+
+Exercise 1
+
+
+var initial_state = ['g', 'b', '.', '.', 'g'];
+
+function main(n) {
+
+  //////////////////////////////////
+  ////                          ////
+  //// v YOUR CODE BELOW HERE v ////
+  ////                          ////
+  //////////////////////////////////
+
+
+  for(var i=0; i<5; i++) {
+      if (onBlue()) {
+        erase();
+        useBlue();
+        moveRight();
+        draw();
+        break;
+      }
+      else {
+        moveRight();
+      }
+  }
+
+
+
+  //////////////////////////////////
+  ////                          ////
+  //// ^ YOUR CODE ABOVE HERE ^ ////
+  ////                          ////
+  //////////////////////////////////
+
+} // END MAIN
+
+
+Exercise 2
+
+
+var initial_state = [ 'g', 'b', 'b', '.', '.' ];
+
+function main(n) {
+
+  //////////////////////////////////
+  ////                          ////
+  //// v YOUR CODE BELOW HERE v ////
+  ////                          ////
+  //////////////////////////////////
+
+  var lastCircle = 0;
+
+  for(var i=0; i<5; i++) {
+      if (onBlue() || onGreen()) {
+        lastCircle = i;
+      }
+      moveRight();
+  }
+
+  for(var i=0; i<5; i++) {
+    moveLeft();
+  }
+
+  for(var i=0; i<5; i++) {
+      if (i==lastCircle) {
+        break;
+      }
+      else {
+        erase();
+      }
+      moveRight();
+  }
+
+
+
+  //////////////////////////////////
+  ////                          ////
+  //// ^ YOUR CODE ABOVE HERE ^ ////
+  ////                          ////
+  //////////////////////////////////
+
+} // END MAIN
+
+
+Exercise 3
+
+
+var initial_state = ['b', '.', 'b', '.', '.'];
+
+function main(n) {
+
+  //////////////////////////////////
+  ////                          ////
+  //// v YOUR CODE BELOW HERE v ////
+  ////                          ////
+  //////////////////////////////////
+
+  var numBlues = 0;
+
+  for(var i=0; i<5; i++) {
+      if (onBlue()) {
+        numBlues++;
+      }
+      moveRight();
+  }
+
+  for(var i=0; i<5; i++) {
+    moveLeft();
+  }
+
+  for(var i=0; i<5; i++) {
+      var startBlue = initial_state.length - numBlues;
+
+      if (i>=startBlue) {
+        useBlue();
+        draw();
+      }
+      else {
+        erase();
+      }
+      moveRight();
+  }
+
+
+
+  //////////////////////////////////
+  ////                          ////
+  //// ^ YOUR CODE ABOVE HERE ^ ////
+  ////                          ////
+  //////////////////////////////////
+
+} // END MAIN
+
+
+Exercise 4
+
+
+var initial_state = [ '.', 'b', 'b', '.', 'b' ];
+
+function main(n) {
+
+  //////////////////////////////////
+  ////                          ////
+  //// v YOUR CODE BELOW HERE v ////
+  ////                          ////
+  //////////////////////////////////
+
+  var numBlues = 0;
+  var numBluesDrawn = 0;
+
+  for(var i=0; i<5; i++) {
+      if (onBlue()) {
+        numBlues++;
+      }
+      moveRight();
+  }
+
+  for(var i=0; i<5; i++) {
+    moveLeft();
+  }
+
+  for(var i=0; i<5; i++) {
+      if (numBluesDrawn<numBlues) {
+        useBlue();
+        draw();
+        numBluesDrawn++;
+      }
+      else {
+        erase();
+      }
+      moveRight();
+  }
+
+
+
+  //////////////////////////////////
+  ////                          ////
+  //// ^ YOUR CODE ABOVE HERE ^ ////
+  ////                          ////
+  //////////////////////////////////
+
+} // END MAIN
